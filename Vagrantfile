@@ -10,8 +10,8 @@ Vagrant.configure(2) do |config|
     end
 
     config.vm.box = "ubuntu/xenial64"
-    config.vm.network "forwarded_port", guest: 8080, host: 5555
-    config.vm.network "forwarded_port", guest: 80, host: 6666 
+    config.vm.network "forwarded_port", guest: 8080, host: 5555, host_ip: "127.0.0.1"
+    config.vm.network "forwarded_port", guest: 80, host: 6666, host_ip: "127.0.0.1"
     config.vm.synced_folder ".", "/home/vagrant/shared"
     config.vm.provision "shell", inline: <<-SHELL
 

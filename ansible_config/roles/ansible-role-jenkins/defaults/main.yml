@@ -212,8 +212,8 @@ jenkins_init_changes:
     value: "--prefix={{ jenkins_url_prefix }}"
   - option: "{{ jenkins_java_options_env_var }}"
     value: "{{ jenkins_java_options }}"
-  - option: "JENKINS_ARGS"
-    value: "--httpListenAddress=127.0.0.1"
+#  - option: "JENKINS_ARGS"
+#    value: "--httpListenAddress=127.0.0.1"
 
 # If Jenkins is behind a proxy, configure this.
 jenkins_proxy_host: ""

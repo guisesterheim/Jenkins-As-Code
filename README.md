@@ -44,9 +44,11 @@ PS: This specific packer_config.json file is configured to create an image on Az
 ## 3. Activating TLS (https) and Google SSO
 
 1. Go for <code>ansible_config/roles/ansible-role-jenkins/defaults/main.yml</code>. Uncomment line 15 and change it to your final URL. Comment line 16
-2. Go for <code>ansible_config/roles/ansible-role-haproxy/templates/haproxy.cfg</code>. Change line 33 to use your final organization's URL
-3. Rebuild your image with packer (IMPORTANT! Your new image won't work locally because you changed jenkins configuration)
-4. Go for your cloud and deploy a new instance using your just created image
+2. Still on <code>defaults/main.yml</code>: uncomment lines 215 and 216 <code>"option: "JENKINS_ARGS""</code> and <code>"value: "--httpListenAddress=127.0.0.1""</code>
+3. Go for <code>ansible_config/roles/ansible-role-haproxy/templates/haproxy.cfg</code>. Change line 33 to use your final organization's URL
+4. Go for <code>ansible_config/site.yml</code> and uncomment HAProxy role section
+5. Rebuild your image with packer (IMPORTANT! Your new image won't work locally because you changed jenkins configuration)
+6. Go for your cloud and deploy a new instance using your just created image
 
 ### 3.1 - TLS: Once you have your machine up and running, connect through SSH to perform the last manual steps: TLS and SSO Google authentication:
 

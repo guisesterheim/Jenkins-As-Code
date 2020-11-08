@@ -50,7 +50,7 @@
             "sudo apt-get -y install python-jinja2 python-paramiko",
             "sudo pip3 install ansible",
 
-            "sudo git clone https://<my-repo.git> /home/ubuntu/jenkins",
+            "sudo git clone https://github.com/guisesterheim/Jenkins-As-Code.git /home/ubuntu/jenkins",
 
             "sudo mkdir -p /var/lib/jenkins",
             "sudo cp /home/ubuntu/jenkins/jenkins.yaml /var/lib/jenkins",

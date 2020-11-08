@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
         sudo pip3 install ansible
 
         # Clone repo and start the app
-        git clone https://<my-repo>.git /home/ubuntu/jenkins
+        git clone https://github.com/guisesterheim/Jenkins-As-Code.git /home/ubuntu/jenkins
 
         # Preset Jenkins config files
         sudo mkdir -p /var/lib/jenkins

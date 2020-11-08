@@ -1,0 +1,69 @@
+
+{
+    "__comments__": "under inline, we download dependencies, Ansible and run it from the machine. Access key and secret key must be passed as parameters on the run command like the example: 'packer build -var 'client_id=client_id' packer_config.json'",
+    "variables": {
+        "client_id": "",
+        "client_secret": "",
+        "tenant_id": "",
+        "subscription_id": ""
+    },
+    "builders": [{
+        "type": "azure-arm",
+
+        "client_id": "{{user `client_id`}}",
+        "client_secret": "{{user `client_secret`}}",
+        "tenant_id": "{{user `tenant_id`}}",
+        "subscription_id": "{{user `subscription_id`}}",
+
+        "managed_image_resource_group_name": "rg1",
+        "managed_image_name": "packer-jenkins-{{timestamp}}",
+
+        "temp_resource_group_name": "rg2",
+
+        "os_type": "Linux",
+        "image_publisher": "Canonical",
+        "image_offer": "UbuntuServer",
+        "image_sku": "18.04-LTS",
+
+        "azure_tags": {
+            "Name": "tag",
+            "Application": "tag2",
+            "Environment": "dev"
+        },
+
+        "location": "East US 2",
+        "vm_size": "Standard_D2_v2"
+    }],
+    "provisioners": [{
+        "type": "shell",
+        "inline": [
+            "sudo apt-get update -y",
+            "sudo apt-get install -y wget curl vim git unzip",
+
+            "sudo apt-get install -y python3",
+            "sudo apt-get install -y python3-pip",
+            "sudo pip3 install --upgrade pip",
+            "sudo pip3 install packaging",
+        
+            "sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash",
+
+            "sudo apt-get -y install python-jinja2 python-paramiko",
+            "sudo pip3 install ansible",
+
+            "sudo git clone https://<my-repo.git> /home/ubuntu/jenkins",
+
+            "sudo mkdir -p /var/lib/jenkins",
+            "sudo cp /home/ubuntu/jenkins/jenkins.yaml /var/lib/jenkins",
+
+            "sudo ansible-playbook /home/ubuntu/jenkins/ansible_config/site.yml",
+        
+            "sudo usermod -aG docker jenkins",
+            "sudo usermod -aG root jenkins",
+            "sudo chmod 777 /var/run/docker.sock",
+
+            "sleep 60s",
+
+            "sudo bash /home/ubuntu/jenkins/ansible_config/general-test.sh"
+        ]
+    }]
+}

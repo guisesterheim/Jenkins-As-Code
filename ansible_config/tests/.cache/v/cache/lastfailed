@@ -1,0 +1,13 @@
+{
+  "test.py::test_able_to_access_docker_without_root": true, 
+  "test.py::test_customized_daemon_flags_systemd_unit_file": true, 
+  "test.py::test_customized_environment_systemd_unit_file": true, 
+  "test.py::test_customized_systemd_override": true, 
+  "test.py::test_daemon_json_is_configured": true, 
+  "test.py::test_docker_clean_up_cron_job": true, 
+  "test.py::test_docker_compose_is_pip_installed_and_symlinked": true, 
+  "test.py::test_docker_version": true, 
+  "test.py::test_pinned_docker_version": true, 
+  "test.py::test_python_docker_is_symlinked": true, 
+  "test.py::test_python_docker_module": true
+}

@@ -1,0 +1,30 @@
+---
+# defaults file for liquibase
+liquibase_ver: 4.0.0
+liquibase_mirror: https://github.com/liquibase/liquibase/releases/download
+liquibase_parent_install_dir: /usr/local
+liquibase_checksums:
+  # https://github.com/liquibase/liquibase/releases/download/v3.8.2/liquibase-3.8.2.tar.gz
+  '3.8.2': sha256:89d3f82d07f7dd8244ca4994d8604f6534593b4cb071ad6bca47850e0561e4e0
+  # https://github.com/liquibase/liquibase/releases/download/v3.8.3/liquibase-3.8.3.tar.gz
+  '3.8.3': sha256:18908f97a3e36145d87ffd93c69156385fb292785beaa3dcd2e0f2cad4df2420
+  # https://github.com/liquibase/liquibase/releases/download/v3.8.4/liquibase-3.8.4.tar.gz
+  '3.8.4': sha256:d74cd6962b92e8af7f6efd1e0ea58cbf2d0be7a889a24fc86de2441619b30db1
+  # https://github.com/liquibase/liquibase/releases/download/v3.8.5/liquibase-3.8.5.tar.gz
+  '3.8.5': sha256:dac08f47e5065587db5a510df509a3d97908925a1be64e405a248810110a7f73
+  # https://github.com/liquibase/liquibase/releases/download/v3.8.6/liquibase-3.8.6.tar.gz
+  '3.8.6': sha256:a4279a81cb846b3bb7271771137232a24a3adfa6154e9087bbb28e2827daa6a7
+  # https://github.com/liquibase/liquibase/releases/download/v3.8.7/liquibase-3.8.7.tar.gz
+  '3.8.7': sha256:8f87be4f33f2be55e47650bd4b0c576e8fa187a2b264279c327f89ee7fbd433f
+  # https://github.com/liquibase/liquibase/releases/download/v3.8.8/liquibase-3.8.8.tar.gz
+  '3.8.8': sha256:54ca4e5f2bd7362838438965f8eea64719a91705d5370b74b46b4fcfede389de
+  # https://github.com/liquibase/liquibase/releases/download/v3.8.9/liquibase-3.8.9.tar.gz
+  '3.8.9': sha256:b4f5cc5c5fcd266af884b14885c25efa3ea73959a6b3f509ba0f251f90da178f
+  # https://github.com/liquibase/liquibase/releases/download/v3.9.0/liquibase-3.9.0.tar.gz
+  '3.9.0': sha256:68eda6527ef36b45aff70a755e5660a15d82079a0074b56b7da3c7aede8b5a61
+  # https://github.com/liquibase/liquibase/releases/download/v3.10.0/liquibase-3.10.0.tar.gz
+  '3.10.0': sha256:dee07bb4e8e1581c688e526c31f00bc19c6f7d1ea66254256666ce6af462b5c0
+  # https://github.com/liquibase/liquibase/releases/download/v3.10.1/liquibase-3.10.1.tar.gz
+  '3.10.1': sha256:e54dc5d639fa404ebcc72de647c2009748fa0685566a46abaed9c2a9b88e40e0
+  # https://github.com/liquibase/liquibase/releases/download/v4.0.0/liquibase-4.0.0.tar.gz
+  '4.0.0': sha256:b51e852d81f19ed2146d8bdf55d755616772ce0defef66074de4f0b33dde971b

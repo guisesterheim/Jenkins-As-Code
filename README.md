@@ -65,7 +65,7 @@ Done! Your Jenkins is ready to run under https with valid certificates. Just poi
 
 PS: More information on how to generate client ID and client secret on the plugin's page: https://github.com/jenkinsci/google-login-plugin
 
-## Ansible
+## 4. Understanding how it's done: Ansible
 
 Ansible is a tool to configure our OS as we want it to be.
 

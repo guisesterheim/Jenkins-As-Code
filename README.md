@@ -16,15 +16,10 @@ Vagrantfile is used to local tests only. This is a pre-step before creating the 
 
 #### Vagrant commands:
 
-- Have (1) Vagrant installed (sudo apt install vagrant) and (2) Oracle's VirtualBox
-
-- How to run: navigate to root of this repo and run <code>sudo vagrant up</code>. After everything is complete, it will create a Jenkins acessible from your host machine at <code>localhost:5555</code> and <code>localhost:6666</code>
-
-This will create a virtual machine and will install everything listed on the Vagrantfile
-
-- How to SSH into the created machine: run <code>sudo vagrant ssh</code>
-
-- How to destroy the VM: run <code>sudo vagrant destroy</code>
+1. Have (1) Vagrant installed (sudo apt install vagrant) and (2) Oracle's VirtualBox
+2. How to run: navigate to root of this repo and run <code>sudo vagrant up</code>. After everything is complete, it will create a Jenkins acessible from your host machine at <code>localhost:5555</code> and <code>localhost:6666</code>. This will create a virtual machine and will install everything listed on the Vagrantfile
+3. How to SSH into the created machine: run <code>sudo vagrant ssh</code>
+4. How to destroy the VM: run <code>sudo vagrant destroy</code>
 
 ### Using packer to build your AMI or Az VM Image
 
@@ -42,11 +37,9 @@ PS: This specific packer_config.json file is configured to create an image on Az
 
 ### Jenkins configuration files
 
-> This jenkins is configured automatically using Jenkins plugin <code>configuration as code</code>. All the configuration is listed on file <code>jenkins.yaml</code> in this root. On that file you can add your pipelines and credentials for those pipelines to consume. Full documentation and possibilities can be found here: <code>https://www.jenkins.io/projects/jcasc/</code>
-
-> The plugins that this Jenkins will have installed can be found at: <code>ansible_config/roles/ansible-role-jenkins/defaults/main.yml</code>. If you need to get your current installed plugins, you can find how to here: <code>https://stackoverflow.com/questions/9815273/how-to-get-a-list-of-installed-jenkins-plugins-with-name-and-version-pair</code>
-
-> You can change jenkins default admin password on file <code>ansible_config/roles/ansible-role-jenkins/defaults/main.yml</code> attribute "jenkins_admin_password"
+1. This jenkins is configured automatically using Jenkins plugin <code>configuration as code</code>. All the configuration is listed on file <code>jenkins.yaml</code> in this root. On that file you can add your pipelines and credentials for those pipelines to consume. Full documentation and possibilities can be found here: <code>https://www.jenkins.io/projects/jcasc/</code>
+2. The plugins that this Jenkins will have installed can be found at: <code>ansible_config/roles/ansible-role-jenkins/defaults/main.yml</code>. If you need to get your current installed plugins, you can find how to here: <code>https://stackoverflow.com/questions/9815273/how-to-get-a-list-of-installed-jenkins-plugins-with-name-and-version-pair</code>
+3. You can change jenkins default admin password on file <code>ansible_config/roles/ansible-role-jenkins/defaults/main.yml</code> attribute "jenkins_admin_password"
 
 ## 3. Activating TLS (https) and Google SSO
 

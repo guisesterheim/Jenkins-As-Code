@@ -16,21 +16,6 @@ The ansible roles listed below will configure Jenkins. The plugins this Jenkins 
 
 File jenkins.yaml describes all the pipelines this Jenkins will have. Each pipeline points to a Jenkinsfile located whether in <code>jenkins_infra</code> or in each service folder as "JenkinsFile".
 
-The credentials part of the file will have the following needed credentials:
-1. GIT_ACCESS_TOKEN - Token used to clone repos from GitLab - User esales.jenkins
-2. AZ_TF_CONTAINER_NAME - Container name in Azure Storage for Terraform to store the .tfstate file
-3. AZ_TF_STORAGE_ACCOUNT - Storage name in Azure Storage for Terraform to store the .tfstate file
-4. AZ_TF_KEY_FILE - Name (dinamically changed) in Azure Storage container for Terraform to name the .tfstate file
-5. AZ_SUBSCRIPTION_ID - Subscription ID from Azure user (Authentication)
-6. AZ_CLIENT_ID - Client ID from Azure user (Authentication)
-7. AZ_CLIENT_SECRET - Client secret from Azure user (Authentication)
-8. AZ_TENANT_ID - Client tenant ID from Azure user (Authentication)
-9. AZ_TF_ROOT_RG_NAME - Root resource group name for Architecture artifacts. Used for Terraform to store .tfstate files primarily
-10. AZ_USERNAME - Username and password for Jenkins to login to AZ Cli
-11. AZ_DNS_ZONE_NAME - DNS Zone Name to change after blue/green deployment. Can be found on Azure
-12. AZ_STORAGE_CONNECTION_STRING - Connection string to connect to Azure Storage for dealing with Terraform files
-
-
 ## Other tools - how this repository works
 
 ### Packer
@@ -88,14 +73,13 @@ Once you need to change configurations and deploy a new Jenkins instance, you sh
 2. Apply your configurations the same way you did manually but now using Ansible and its roles
 3. Test it locally using Vagrant. Once everything is set
 4. Use packer to build your new image at Azure
-5. Create a new VM pointing to the external IP called <code>logistics-jenkins</code>. The IP can be found at resource group <code>eSalesLogisticsFoundation</code>
 
 ### Once you have your machine up and running, connect through SSH to perform the last manual steps: TLS and SSO Google authentication:
 
-1. Generate the .pem certificate file with <code>cat STAR.esales.com.br.crt STAR.esales.com.br.key > fullkey.pem</code>. Infra has the certificate files should you need it (remember to remove the empty row that is kept inside the generated fullkey.pem between the two certificates. To look at the file use <code>cat fullkey.pem</code>)
+1. Generate the .pem certificate file with <code>cat STAR.mycompany.com.crt STAR.mycompany.com.key > fullkey.pem</code>. Infra has the certificate files should you need it (remember to remove the empty row that is kept inside the generated fullkey.pem between the two certificates. To look at the file use <code>cat fullkey.pem</code>)
 2. Move the generated file to folder <code>/home/ubuntu/jenkins/</code>
 3. Restart HAProxy with <code>sudo service haproxy restart</code>
 4. Log in to jenkins using regular admin credentials. Go to "Manage Jenkins" > "Global Security". Under "Authentication" select "Login with Google" and paste like below:
-> * Client id = 511866396119-lvhdqafhds9k32kplk5pqiv7as07p4kt.apps.googleusercontent.com
-> * Client secret = UpXVqz0q5Y2vHjdp9vYU8y-3
-> * Google Apps Domain = esales.com.br
+> * Client id = client_id
+> * Client secret = client_secret
+> * Google Apps Domain = mycompany.com
